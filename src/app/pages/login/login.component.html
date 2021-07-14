@@ -1,0 +1,52 @@
+<div class="container h-100" >
+    
+    <div class="row h-100 justify-content-center align-items-xl-center">
+        
+        <div class="card-style">
+                        
+            <div class="">
+            
+                <app-image></app-image>
+
+                <div class="main-text-center main-text-style">
+                    <span class="text-font-18" *ngIf="status" >Google Maps'e Hoşgeldiniz</span>
+
+                    <div *ngIf="!status"  class="main-text-style-2">
+                        <span class="text-font-18">Şifrenizi sıfırlamak istediğiniz <br> E-mail adresini girin</span>
+                    </div>
+                </div>
+
+                
+                    <app-login-form *ngIf="status" ></app-login-form>
+
+                    <app-password-forgotten *ngIf="!status"></app-password-forgotten>
+                    
+                    <app-reset-password-button *ngIf="!status"></app-reset-password-button>
+
+                    <div class="password-button-right" *ngIf="status"> 
+                        <app-button class="forgot-password" classItem="link"  text="Şifremi Unuttum" (click) ="forgotPasswordPageShow()"></app-button>
+                    </div>
+                    
+                    <div class="giris-yap" *ngIf="!status">
+                        <app-button classItem="link"  text="veya Giriş Yapın" (click) ="loginPageShow()"></app-button>
+                    </div>
+
+                    <app-login-button  *ngIf="status"></app-login-button>
+
+               
+            </div>
+
+        
+        </div>
+    
+
+    </div>
+
+</div>
+
+        
+    
+
+
+
+

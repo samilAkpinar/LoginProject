@@ -1,0 +1,4 @@
+<div class="holder" >
+    <label *ngIf="label" class="label" [ngClass]="{'label-focus': labelState}" >{{label}}</label>
+    <input type="{{type}}"  class="input text-font-18" placeholder={{placeholder}} (click) = "onFocus()" (blur)="onBlur()"  >
+</div>
