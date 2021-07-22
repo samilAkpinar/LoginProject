@@ -14,10 +14,7 @@ export class LoginButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+ 
 
-  fromSend():void {
-    
-    console.log("gönderildi");
-  }
 
 }

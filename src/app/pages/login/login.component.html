@@ -31,9 +31,9 @@
                         <app-button classItem="link"  text="veya Giriş Yapın" (click) ="loginPageShow()"></app-button>
                     </div>
 
-                    <app-login-button  *ngIf="status"></app-login-button>
+                    <app-login-button  *ngIf="status" (click)="send()"></app-login-button>
 
-               
+                    <p *ngIf="true">deneme {{ getir }}</p>
             </div>
 
         

@@ -17,8 +17,9 @@ import { LoginFormComponent } from './partial/login-form/login-form.component';
 import { PasswordForgottenComponent } from './partial/password-forgotten/password-forgotten.component';
 import { LoginButtonComponent } from './partial/login-button/login-button.component';
 import { ResetPasswordButtonComponent } from './partial/reset-password-button/reset-password-button.component';
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ResetPasswordButtonComponent } from './partial/reset-password-button/re
     PasswordForgottenComponent,
     LoginButtonComponent,
     ResetPasswordButtonComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,10 @@ import { ResetPasswordButtonComponent } from './partial/reset-password-button/re
     FlexLayoutModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
