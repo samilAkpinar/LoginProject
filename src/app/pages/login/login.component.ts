@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormService } from 'src/app/services/form.service';
+import { User } from 'src/app/models/User';
 
 
 @Component({
@@ -12,7 +13,6 @@ export class LoginComponent implements OnInit {
 
   status!: boolean;
 
- 
   constructor(
     private http:HttpClient,
     private formService : FormService
@@ -20,12 +20,10 @@ export class LoginComponent implements OnInit {
 
 
   getir!: any;
+  token!: string;
 
   ngOnInit(): void {
     this.status = true;
-    this.getValues().subscribe(data =>{
-        this.getir = data
-    })
   }
 
   loginPageShow(){
@@ -36,23 +34,15 @@ export class LoginComponent implements OnInit {
     this.status = false;
   }
 
-  getValues() {
-    
-    return this.http.get("https://localhost:5001/login");
-    
-  }
+  
 
-  postAdd() {
-    //return this.http.post()
-    //verileri console.log ile göster
-    
-    //console.log("ok")
-    //console.log("txtEmail ")
-  }
+  
 
-  //servis kullanılması gerekli
+  //button click fonksiyonu token değeri alınır.
   send():void {
-    this.formService.sent();
+    this.formService.send().subscribe(data => {
+    this.token = data;
+     });
   }
 
 

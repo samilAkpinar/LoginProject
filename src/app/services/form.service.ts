@@ -1,6 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Login } from '../models/login';
+import { Observable, throwError } from 'rxjs';
+import { User } from '../models/User';
+
 
 
 @Injectable({
@@ -12,39 +15,46 @@ export class FormService {
   password:string = "";
 
   
+  constructor(
+    private snackBar: MatSnackBar,
+    private http: HttpClient
+    ) { }
 
-  constructor(private snackBar: MatSnackBar) { }
-
-  createSnackbar(type: string, message: string, duration: number = 4000): void  {
+  createSnackbar(type: string, message: string, duration: number = 4000): void  
+  {
     this.snackBar.open(message, '', {
       duration,
       panelClass: type
     });
   }
 
-  addEmail(_email:string) {
+  addEmail(_email:string) 
+  {
     this.email = _email;
-    
   }
 
-  addPassword(_password:string) {
+  addPassword(_password:string) 
+  {
     this.password = _password;
-   
   }
 
-  sent(){
-    //http ile .net cor'a gidecek ve orada responce olarak bize bir token dönecektir. 
-    if(this.email != "" && this.password != "" && this.password.length >= 8 ){
+  //email ve password değerleri backend tarafına post edilir ve geriye string değerde token döner.
+  send():Observable<any>{
 
-      console.log("gönderildi: email: "+this.email +" password: "+this.password);
-    }
-    else{
-      this.createSnackbar('error',"Error");
+    //backend'e class olarak gönderilir.
+    const user = new User(this.email,this.password,"");
+
+    if( this.email != "" && this.password != "" && this.password.length >= 8 )
+    {
+      const headers = { 'content-type': 'application/json'} 
+      return this.http.post("https://localhost:5001/Authorizations/Login " ,user ,{'headers':headers, responseType: 'text'});
       
+    }else 
+    {
+      this.createSnackbar('error',"Error");
+      return throwError("error");
     }
 
-    
   }
-
 
 }
