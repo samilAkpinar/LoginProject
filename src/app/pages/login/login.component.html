@@ -21,7 +21,7 @@
 
                     <app-password-forgotten *ngIf="!status"></app-password-forgotten>
                     
-                    <app-reset-password-button *ngIf="!status"></app-reset-password-button>
+                    <app-reset-password-button *ngIf="!status" (click)="emailSend()"></app-reset-password-button>
 
                     <div class="password-button-right" *ngIf="status"> 
                         <app-button class="forgot-password" classItem="link"  text="Şifremi Unuttum" (click) ="forgotPasswordPageShow()"></app-button>
@@ -33,7 +33,6 @@
 
                     <app-login-button  *ngIf="status" (click)="send()"></app-login-button>
 
-                    <p *ngIf="true">http post token {{ token }}</p>
             </div>
 
         </div>

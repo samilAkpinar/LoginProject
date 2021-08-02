@@ -16,7 +16,7 @@ export class InputComponent implements OnInit {
   
   
   labelState!: boolean; //input focus durumundaki style değişimidir.
-  value: string = "";//formdan gelen email ve şifre değerleri
+  value: string = "";//formdan gelen email ve şifre değerleridir.
 
   required: string = "";
   character: string = "";
@@ -28,7 +28,7 @@ export class InputComponent implements OnInit {
   
   ngOnInit(): void {
     this.labelState = false;
-    console.log("type: "+ this.type);
+    //console.log("type: "+ this.type);
   }
 
   
@@ -36,18 +36,39 @@ export class InputComponent implements OnInit {
     this.labelState = true;
   }
 
-  
-  onBlur() {
+
+  validateEmail(email:string): boolean{
+    
+    const regularExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regularExpression.test(String(email).toLowerCase());
+  }
+
+  onBlur():any {
 
     this.labelState = false;
     
     if(this.type == "email"){
       
+      var validateEmail = this.validateEmail(this.value);
       this.required = "Email is required";
-      //this.txtEmail = this.value;
-      console.log("input Email: "+ this.value);
-      this.formService.addEmail(this.value);
 
+      if(!validateEmail){
+
+        //console.log("Email hatası");
+        this.formService.addEmail('');
+        this.formService.addForgotPassword('');
+
+      }else{
+
+        this.required = "Email is required";
+        //this.txtEmail = this.value;
+        console.log("input Email: "+ this.value);
+        this.formService.addEmail(this.value);  
+        this.formService.addForgotPassword(this.value);  
+
+      }
+
+      
     }
     else if (this.type == "password") {
       
@@ -64,6 +85,7 @@ export class InputComponent implements OnInit {
 
     }
 
+    
     
   }
 

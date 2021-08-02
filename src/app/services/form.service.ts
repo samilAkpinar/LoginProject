@@ -13,6 +13,7 @@ export class FormService {
 
   email:string = "";
   password:string = "";
+  forgotPassword:string = "";
 
   
   constructor(
@@ -20,7 +21,7 @@ export class FormService {
     private http: HttpClient
     ) { }
 
-  createSnackbar(type: string, message: string, duration: number = 4000): void  
+  createSnackbar(type: string, message: string, duration: number = 4000): void 
   {
     this.snackBar.open(message, '', {
       duration,
@@ -38,6 +39,11 @@ export class FormService {
     this.password = _password;
   }
 
+  addForgotPassword(_forgotPassword:string)
+  {
+    this.forgotPassword = _forgotPassword;
+  }
+
   //email ve password değerleri backend tarafına post edilir ve geriye string değerde token döner.
   send():Observable<any>{
 
@@ -51,9 +57,20 @@ export class FormService {
       
     }else 
     {
-      this.createSnackbar('error',"Error");
+      this.createSnackbar('error',"Eksik veya Hatalı Bir Giriş Yaptınız!");
       return throwError("error");
     }
+
+  }
+
+  forgottenPassword():Observable<any>{
+         
+    //console.log("forgot email send() " + this.forgotPassword);
+
+    const user = new User(this.forgotPassword,"","");
+
+    const headers = { 'content-type': 'application/json'} 
+    return this.http.post("https://localhost:5001/Authorizations/CheckEmail" ,user ,{'headers':headers, responseType: 'text'});
 
   }
 
