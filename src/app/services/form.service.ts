@@ -29,6 +29,7 @@ export class FormService {
     });
   }
 
+  
   addEmail(_email:string) 
   {
     this.email = _email;
@@ -44,6 +45,8 @@ export class FormService {
     this.forgotPassword = _forgotPassword;
   }
 
+  
+
   //email ve password değerleri backend tarafına post edilir ve geriye string değerde token döner.
   send():Observable<any>{
 
@@ -52,7 +55,11 @@ export class FormService {
 
     if( this.email != "" && this.password != "" && this.password.length >= 8 )
     {
-      const headers = { 'content-type': 'application/json'} 
+      
+      //save localstorage email
+      localStorage.setItem("email",user.email);
+
+      const headers = { 'content-type': 'application/json'}
       return this.http.post("https://localhost:5001/Authorizations/Login " ,user ,{'headers':headers, responseType: 'text'});
       
     }else 

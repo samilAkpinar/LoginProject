@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { FormService } from 'src/app/services/form.service';
 import { User } from 'src/app/models/User';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { Router } from '@angular/router';
+import { stringify } from '@angular/compiler/src/util';
 
 
 @Component({
@@ -13,19 +15,26 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 export class LoginComponent implements OnInit {
 
   status!: boolean;
+  token!: string;
 
   constructor(
     private formService : FormService,
-    private snackBar: SnackbarService
+    private snackBar: SnackbarService,
+    private route:Router
     
     ) { }
 
 
-  getir!: any;
-  token!: string;
 
   ngOnInit(): void {
     this.status = true;
+
+    //localStorage.removeItem("token"); çıkıs kodu
+    
+    if(localStorage.getItem("token") != null ){
+      
+      this.route.navigate(['/dashboard']);
+    }
   }
 
   loginPageShow(){
@@ -41,8 +50,18 @@ export class LoginComponent implements OnInit {
   send():void {
     this.formService.send().subscribe(data => {
     this.token = data;
-    console.log("Token değeri: " +this.token);
-    this.snackBar.createSnackbar('info',"Başarılı Bir Şekilde Giriş Yapılmıştır.");
+      
+    if(data == "false"){
+      
+      this.snackBar.createSnackbar('error',"Bir Hata Oluştu! Lütfen Daha Sonra Tekrar Deneyin! ");
+ 
+    }else{
+      
+      this.snackBar.createSnackbar('info',"Başarılı Bir Şekilde Giriş Yapılmıştır.");
+      localStorage.setItem("token",data);     
+      this.route.navigate(['/dashboard']);
+    }
+      
 
      },error => {
       this.snackBar.createSnackbar('error',"Bir Hata Oluştu! Lütfen Daha Sonra Tekrar Deneyin! ");
@@ -66,7 +85,10 @@ export class LoginComponent implements OnInit {
     },error => {
       this.snackBar.createSnackbar('error',"Bir Hata Oluştu! Lütfen Daha Sonra Tekrar Deneyin! ");
   });
+
   }
+
+  
 
 
   

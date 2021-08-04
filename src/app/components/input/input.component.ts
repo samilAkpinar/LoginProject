@@ -28,7 +28,6 @@ export class InputComponent implements OnInit {
   
   ngOnInit(): void {
     this.labelState = false;
-    //console.log("type: "+ this.type);
   }
 
   
@@ -54,15 +53,12 @@ export class InputComponent implements OnInit {
 
       if(!validateEmail){
 
-        //console.log("Email hatası");
         this.formService.addEmail('');
         this.formService.addForgotPassword('');
 
       }else{
 
         this.required = "Email is required";
-        //this.txtEmail = this.value;
-        console.log("input Email: "+ this.value);
         this.formService.addEmail(this.value);  
         this.formService.addForgotPassword(this.value);  
 
@@ -74,8 +70,6 @@ export class InputComponent implements OnInit {
       
       this.character = "Password must be at least 8 characters long.";
       this.required = "Password is required";
-      //this.txtPassword = this.value;
-      console.log("input password: "+ this.value);
       this.formService.addPassword(this.value);
 
     } else {
@@ -85,18 +79,6 @@ export class InputComponent implements OnInit {
 
     }
 
-    
-    
   }
-
-  
-
-  
-
-  
-
-
-
-
 
 }
