@@ -78,10 +78,20 @@
                         <span class="header-user-name">Name Surname</span>
                     </li>
                     <li>
-                        <span class="header-user-email">{{ email }}</span>
+                        <div [matMenuTriggerFor]="menu" >
+                            <span class="header-user-email">{{ email }}</span>
+                        </div>
+
+                          <mat-menu #menu="matMenu">
+                            <button mat-menu-item>
+                              <span>Firma Bilgilerimi Göster</span>
+                            </button>
+                            <button (click) = "logout()" mat-menu-item>
+                              <span>Logout</span>
+                            </button>
+                          </mat-menu>
                     </li>
                 </ul>
-                
             </div>
                         
         </div>
