@@ -1,30 +1,118 @@
-<div class="navbar">
-    <div class="container">
-        <div class="col-sm-3 col-md-2 mr-0">
-            <a href="">
-                <img src="/assets/e-mikro.png" alt="">
-            </a>
-        </div>
-        
-        <div class="col-sm-8 col-md-12 col-lg-10 ">
-            <div class="row">
-                <div class="col-md-10 col-lg-8">
-                    
-                </div>
-               
-                <div class="col-md-2 col-lg-4">
-                    <div class="dropdown">
-                        <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                          {{ email }}
-                        </a>
-                      
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          <li><button class="dropdown-item" href="#">Firma Bilgilerini Düzenle</button></li>
-                          <li><button class="dropdown-item" (click)="logout()">Çıkış Yap</button></li>
-                        </ul>
-                      </div>
-                </div>
-            </div>
+
+<div class="sidebar">
+    <div class="brand-flex">
+        <span>SaaS Kit</span>           
+    </div>   
+
+    <div class="sidebar-main">
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a class="sidebar-dashboard" href="">
+                        <span >
+                            <img src="https://img.icons8.com/material-rounded/24/000000/dashboard-layout.png"/>
+                        </span>
+                        
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="">
+                        <span >
+                            <img src="https://img.icons8.com/material-outlined/24/000000/user--v1.png"/>
+                        </span>
+                        Contacts
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="">
+                        <span>
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/ellipsis.png"/>
+                        </span>
+                        Setting
+                    </a>
+                </li>
+
+            </ul>
+
         </div>
     </div>
 </div>
+
+<div class="sidebare-setting-top-line"></div>
+
+<div class="header-bottom-line"></div>
+
+<div class="main-content">
+    <header>
+        <div class="menu-toggle">
+            <div class="search-menu">
+                <!--
+                    <label for="">
+                    <span>menu</span>
+
+                    </label>
+                 -->
+                
+                <div class="search-bar">
+                   
+                    <img src="https://img.icons8.com/material-outlined/24/000000/search--v1.png"/>
+                    
+                </div>
+                <div class="search-button">
+                    <input type="text" placeholder="search for a contact">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="header-icons">
+            <div class="header-user">
+                <img src="\assets\profile_photo.png" alt="">
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <span class="header-user-name">Name Surname</span>
+                    </li>
+                    <li>
+                        <span class="header-user-email">{{ email }}</span>
+                    </li>
+                </ul>
+                
+            </div>
+                        
+        </div>
+    </header>
+    
+    <main>
+        <div class="page-header">
+            <div class="page-header-title">
+                <span>Company</span>
+            </div>
+
+            <div class="header-actions">
+                <button> Add contact</button>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card-single">
+                <div class="card-flex">
+                    <div class="card-info">
+
+                    </div>
+                    <div class="card-chart">
+                        <!-- 20:02 kalındı.-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+</div>
+
+
+

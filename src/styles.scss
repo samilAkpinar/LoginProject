@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,300&display=swap');
 
+
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', "Helvetica Neue", sans-serif; background-color: #F2F2F2; }
 
-
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 @media (prefers-color-scheme: dark) {
  
@@ -13,3 +14,6 @@ body { margin: 0; font-family: 'Roboto', "Helvetica Neue", sans-serif; backgroun
    }
 }
     
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
