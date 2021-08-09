@@ -60,7 +60,7 @@ export class FormService {
       localStorage.setItem("email",user.email);
 
       const headers = { 'content-type': 'application/json'}
-      return this.http.post("https://localhost:5001/Authorizations/Login " ,user ,{'headers':headers, responseType: 'text'});
+      return this.http.post("https://atrosportal.ddns.net:5001/Authorizations/Login" ,user ,{'headers':headers, responseType: 'text'});
       
     }else 
     {
@@ -77,7 +77,7 @@ export class FormService {
     const user = new User(this.forgotPassword,"","");
 
     const headers = { 'content-type': 'application/json'} 
-    return this.http.post("https://localhost:5001/Authorizations/CheckEmail" ,user ,{'headers':headers, responseType: 'text'});
+    return this.http.post("https://atrosportal.ddns.net:5001/Authorizations/CheckEmail" ,user ,{'headers':headers, responseType: 'text'});
 
   }
 

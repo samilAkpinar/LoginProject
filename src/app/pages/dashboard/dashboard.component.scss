@@ -61,6 +61,15 @@
     padding-bottom: 4px;
 }
 
+.sidebar-menu li a:hover{
+    color: #34AFF9;
+}
+
+.sidebar-menu li a:focus{
+    color: #098EDF;
+}
+
+
 .sidebar-menu li a span {
     font-size: 1.5rem;
     display: inline-block;
@@ -176,7 +185,7 @@ input[type=text]:focus {
     display: inline-block;
 }
 
-.header-user-name {
+.header-title {
     
     font-family: Poppins;
     font-style: normal;
@@ -197,6 +206,12 @@ input[type=text]:focus {
     letter-spacing: 0.01em;
     width: 146px;
     height: 17px;
+}
+
+.header-dropdown-img{
+    width: 15px;
+    height: 15px;
+    
 }
 
 .header-user img{
@@ -257,6 +272,20 @@ main {
     border:none;
     
 }
+
+.header-actions button:hover{
+    background: #34AFF9;
+    box-shadow: 0px 8px 16px rgba(52, 175, 249, 0.2);
+    border-radius: 4px;
+}
+
+
+.header-actions button:active{
+    background: #098EDF;
+    box-shadow: 0px 2px 6px rgba(9, 142, 223, 0.3);
+    border-radius: 4px;
+}
+
 
 .header-actions {
     color: #FFFFFF;

@@ -75,19 +75,21 @@
             <div>
                 <ul>
                     <li>
-                        <span class="header-user-name">Name Surname</span>
+                        <span class="header-title">Name Surname</span>
                     </li>
                     <li>
                         <div [matMenuTriggerFor]="menu" >
-                            <span class="header-user-email">{{ email }}</span>
+                            <span class="header-user-email">{{ email }}
+                            <img class="header-dropdown-img" src="https://img.icons8.com/material-sharp/24/000000/drag-list-down.png"/>
+                        </span>
                         </div>
 
                           <mat-menu #menu="matMenu">
                             <button mat-menu-item>
-                              <span>Firma Bilgilerimi Göster</span>
+                              <span class="header-title">Firma Bilgilerini Düzenle</span>
                             </button>
                             <button (click) = "logout()" mat-menu-item>
-                              <span>Logout</span>
+                              <span class="header-title">Logout</span>
                             </button>
                           </mat-menu>
                     </li>

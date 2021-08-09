@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
   emailSend():void{
     this.formService.forgottenPassword().subscribe(data => {
       
-      //console.log("Email Değeri ", data);
+      console.log("Email Değeri ", data);
 
       if(data == 'true'){
 
