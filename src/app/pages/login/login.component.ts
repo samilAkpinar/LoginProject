@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
   //button click fonksiyonu token değeri alınır.
   send():void {
     this.formService.send().subscribe(data => {
-    this.token = data;
+    //this.token = data;
       
     if(data == "false"){
       
