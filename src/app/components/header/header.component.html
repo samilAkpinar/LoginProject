@@ -1,0 +1,35 @@
+<header>
+    
+        <app-search-input></app-search-input>
+
+
+    <div class="header-icons">
+        <div class="header-user">
+            <img src="\assets\profile_photo.png" alt="">
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <span class="header-title">Name Surname</span>
+                </li>
+                <li>
+                    <div [matMenuTriggerFor]="menu" >
+                        <span class="header-user-email">{{ email }}
+                        <img class="header-dropdown-img" src="https://img.icons8.com/material-sharp/24/000000/sort-down.png"/>
+                    </span>
+                    </div>
+
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                          <span class="header-title">Firma Bilgilerini Düzenle</span>
+                        </button>
+                        <button (click) = "logout()" mat-menu-item>
+                          <span class="header-title">Logout</span>
+                        </button>
+                      </mat-menu>
+                </li>
+            </ul>
+        </div>
+                    
+    </div>
+</header>

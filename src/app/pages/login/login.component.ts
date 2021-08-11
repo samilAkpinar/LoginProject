@@ -29,11 +29,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.status = true;
 
-    //localStorage.removeItem("token"); çıkıs kodu
     
     if(localStorage.getItem("token") != null ){
       
-      this.route.navigate(['/dashboard']);
+      this.route.navigate(['/dashboard/home']);
     }
   }
 
@@ -59,7 +58,7 @@ export class LoginComponent implements OnInit {
       
       this.snackBar.createSnackbar('info',"Başarılı Bir Şekilde Giriş Yapılmıştır.");
       localStorage.setItem("token",data);     
-      this.route.navigate(['/dashboard']);
+      this.route.navigate(['/dashboard/home']);
     }
       
 

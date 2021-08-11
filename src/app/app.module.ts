@@ -23,6 +23,13 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MatIconModule } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
+import { HeaderComponent } from './components/header/header.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import { AddContactButtonComponent } from './partial/add-contact-button/add-contact-button.component';
+import { SearchInputComponent } from './partial/search-input/search-input.component';
 
 
 @NgModule({
@@ -36,7 +43,14 @@ import {MatMenuModule} from '@angular/material/menu';
     PasswordForgottenComponent,
     LoginButtonComponent,
     ResetPasswordButtonComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeaderComponent,
+    SidebarComponent,
+    ContactsComponent,
+    SettingsComponent,
+    MainPageComponent,
+    AddContactButtonComponent,
+    SearchInputComponent
    
   ],
   imports: [

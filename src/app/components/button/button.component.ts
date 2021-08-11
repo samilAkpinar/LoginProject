@@ -8,7 +8,7 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 export class ButtonComponent implements OnInit {
 
   @Input() text: string = "";
-  @Input() classItem: string = "col-sm-6";
+  @Input() classItem: string = "";
   
 
 

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormService } from 'src/app/services/form.service';
 
 import { CommonModule } from '@angular/common';
@@ -19,12 +19,24 @@ export class DashboardComponent implements OnInit {
     ) { }
 
   email:any;
+  selected:string='All';
 
   ngOnInit(): void {
     this.email = localStorage.getItem("email");
     
+    this.route.navigate(['/dashboard/home']);
+
+    if(localStorage.getItem("token") == null ){
+      
+      this.route.navigate(['/']);
+    }
+
   }
 
+  selectedItem(data:string):string {
+    this.selected = data;
+    return this.selected;
+  }
 
   logout():void{
 

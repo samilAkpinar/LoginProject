@@ -1,123 +1,49 @@
 
-<div class="sidebar">
-    <div class="brand-flex">
-        <span>SaaS Kit</span>           
-    </div>   
+<app-sidebar></app-sidebar>
 
-    <div class="sidebar-main">
-        <div class="sidebar-menu">
-            <ul>
-                <li>
-                    <a class="sidebar-dashboard" href="">
-                        <span >
-                            <img src="https://img.icons8.com/material-rounded/24/000000/dashboard-layout.png"/>
-                        </span>
-                        
-                        Dashboard
-                    </a>
-                </li>
-
-                <li>
-                    <a href="">
-                        <span >
-                            <img src="https://img.icons8.com/material-outlined/24/000000/user--v1.png"/>
-                        </span>
-                        Contacts
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="">
-                        <span>
-                            <img src="https://img.icons8.com/ios-glyphs/30/000000/ellipsis.png"/>
-                        </span>
-                        Setting
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-    </div>
-</div>
-
-<div class="sidebare-setting-top-line"></div>
+<div class="sidebar-setting-top-line"></div>
 
 <div class="header-bottom-line"></div>
 
 <div class="main-content">
-    <header>
-        <div class="menu-toggle">
-            <div class="search-menu">
-                <!--
-                    <label for="">
-                    <span>menu</span>
-
-                    </label>
-                 -->
-                
-                <div class="search-bar">
-                   
-                    <img src="https://img.icons8.com/material-outlined/24/000000/search--v1.png"/>
-                    
-                </div>
-                <div class="search-button">
-                    <input type="text" placeholder="search for a contact">
-                    
-                </div>
-            </div>
-        </div>
-
-        <div class="header-icons">
-            <div class="header-user">
-                <img src="\assets\profile_photo.png" alt="">
-            </div>
-            <div>
-                <ul>
-                    <li>
-                        <span class="header-title">Name Surname</span>
-                    </li>
-                    <li>
-                        <div [matMenuTriggerFor]="menu" >
-                            <span class="header-user-email">{{ email }}
-                            <img class="header-dropdown-img" src="https://img.icons8.com/material-sharp/24/000000/drag-list-down.png"/>
-                        </span>
-                        </div>
-
-                          <mat-menu #menu="matMenu">
-                            <button mat-menu-item>
-                              <span class="header-title">Firma Bilgilerini Düzenle</span>
-                            </button>
-                            <button (click) = "logout()" mat-menu-item>
-                              <span class="header-title">Logout</span>
-                            </button>
-                          </mat-menu>
-                    </li>
-                </ul>
-            </div>
-                        
-        </div>
-    </header>
+    
+    <app-header></app-header>
     
     <main>
         <div class="page-header">
             <div class="page-header-title">
-                <span>Company</span>
+                <span>Company:</span>
+                <div class="page-header-filter" [matMenuTriggerFor]="menu">
+                    <span>{{ selected }}</span>
+                    <img class="header-dropdown-img" src="https://img.icons8.com/material-sharp/24/000000/sort-down.png"/>
+                </div>
+
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                      <span (click)="selectedItem('All')" class="header-title">All</span>
+                    </button>
+                    <button mat-menu-item>
+                      <span (click)="selectedItem('Filtered')" class="header-title">Filtered</span>
+                    </button>
+                  </mat-menu>
+                
             </div>
 
-            <div class="header-actions">
-                <button> Add contact</button>
-            </div>
+            <app-add-contact-button></app-add-contact-button>
+            
         </div>
 
         <div class="cards">
             <div class="card-single">
                 <div class="card-flex">
                     <div class="card-info">
-
+                        
                     </div>
                     <div class="card-chart">
-                        <!-- 20:02 kalındı.-->
+                        <!-- 20:02 kalındı: https://www.youtube.com/watch?v=4WvT2cmuZ5M-->
+                        
+                        <router-outlet></router-outlet>
+                    
                     </div>
                 </div>
             </div>

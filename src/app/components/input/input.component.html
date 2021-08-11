@@ -1,15 +1,5 @@
 <div>
     <label *ngIf="label" class="label" [ngClass]="{'label-focus': labelState}" >{{ label }}</label>
-    <input #name="ngModel" [(ngModel)]="value"  type="{{type}}" class="input text-font-18" placeholder={{placeholder}} (click)="onFocus()" (blur)="onBlur()" required minlength="8">
+    <input #name="ngModel" [(ngModel)]="value"  type="{{type}}" class="{{class}}" placeholder={{placeholder}} (click)="onFocus()" (blur)="onBlur()" required >
     
-    <div style="margin-top: -5px;" *ngIf="name.invalid && (name.dirty || name.touched)" >
-
-    <div *ngIf="name.errors?.required">
-        <p class="error-style">{{ required }}</p> 
-    </div>
-    <div *ngIf="name.errors?.minlength">
-       <p class="error-style">{{ character }}</p> 
-    </div>
-  
-    </div>
 </div>
